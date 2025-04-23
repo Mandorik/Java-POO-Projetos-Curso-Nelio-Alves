@@ -130,6 +130,30 @@ public class Program {
 		
 		sc.close();
 
+		/*
+		 * Discutimos que, quando fazemos a associação direta de uma classe a outra, geramos um acoplamento forte entre elas,
+		 * pois a classe RentalService conhece a dependência concreta. Isso significa que teremos dois pontos de alteração:
+		 * se a classe concreta mudar é preciso mudar também a classe RentalService. Isso é indesejável justamente pois temos
+		 * dois pontos de alteração.
+		 * 
+		 * Melhoramos fazendo uma interface, a minha classe RentalService depende da interface, pode ser realizada por qualquer
+		 * classe específica, podendo ser BrazilTaxService, USATaxService etc.
+		 * Dessa forma temos acoplamento fraco, pois RentalService não conhece a dependência concreta: se a classe mudar, a 
+		 * classe RentalService não muda.
+		 * 
+		 * Agora, tratando de inversão de controle e injeção de dependencia:
+		 * 
+		 * - Inversão de controle:
+		 * Padrão de desenvolvimento que consiste em retirar da classe a responsabilidade de instanciar suas dependências
+		 * 
+		 * - Injeção de dependência:
+		 * É uma forma de realizar a inversão de controle: um componente externo instancia a dependência, que é então injetada no objeto
+		 * "pai". Pode ser implementada de várias formas:
+		 * - - Construtor
+		 * - - Classe de instanciação (builder / factory)
+		 * - - Container / framework
+		 * */
+		
 	}
 
 }
