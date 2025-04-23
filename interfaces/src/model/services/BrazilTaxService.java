@@ -1,6 +1,6 @@
 package model.services;
-
-public class BrazilTaxService {
+// Agora, aqui dizemos que o BrazilTaxService implementa o TaxService
+public class BrazilTaxService implements TaxService {
 
 	public double tax(double amount) {
 		if(amount <= 100.0) {

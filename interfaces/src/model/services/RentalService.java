@@ -10,9 +10,9 @@ public class RentalService {
 	private Double pricePerHour;
 	private Double pricePerDay;
 	
-	private BrazilTaxService taxService;
+	private TaxService taxService; // a dependência muda agora, pois é com a interface
 
-	public RentalService(Double pricePerHour, Double pricePerDay, BrazilTaxService taxService) {
+	public RentalService(Double pricePerHour, Double pricePerDay, TaxService taxService) {
 		this.pricePerHour = pricePerHour;
 		this.pricePerDay = pricePerDay;
 		this.taxService = taxService;
@@ -34,4 +34,7 @@ public class RentalService {
 		
 		carRental.setInvoice(new Invoice(basicPayment, tax));
 	}
+	
+	// Em lugar algum há menções ao BrazilTaxService, será só o TaxService e a RentalService não sabe qual implementação será usada, istoé 
+	// Agora a classe RentalService está fechada para alteração 
 }
